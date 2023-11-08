@@ -249,14 +249,45 @@ if BUILD_ZLIB or BUILD_LIBPNG:
 
 if BUILD_LIBPNG:
     print("\n# Next, build libpng.")
-    shell(
-        "cmake -DPNG_SHARED=OFF " +
-        # https://stackoverflow.com/questions/3961446
-        ("-DCMAKE_POSITION_INDEPENDENT_CODE=ON " if bitness > 32 else "") +
-        "{} ..".format(CMAKE_GLOBAL_SWITCHES),
-        cwd=build_dir_lp,
-    )
-    shell("cmake --build . --config Release --target install --parallel", cwd=build_dir_lp)
+
+    if sys.platform == "darwin":
+        # universal binaries are currently not supported by libpng with cmake
+        # https://github.com/glennrp/libpng/issues/372
+        # this config produces a x86 build
+        cmake_global_switches_x86 = CMAKE_GLOBAL_SWITCHES.replace('-DCMAKE_OSX_ARCHITECTURES="x86_64;arm64"',
+                                                                  '-DCMAKE_OSX_ARCHITECTURES="x86_64"')
+        build_configs = [(build_dir_lp, cmake_global_switches_x86)]
+
+        # this config creates an arm build
+        cmake_global_switches_arm = CMAKE_GLOBAL_SWITCHES.replace('-DCMAKE_OSX_ARCHITECTURES="x86_64;arm64"',
+                                                                  '-DCMAKE_OSX_ARCHITECTURES="arm64"')
+        build_dir_lp_arm = path.join(build_dir_lp, "arm")
+        distutils.dir_util.mkpath(build_dir_lp_arm)
+        build_configs.append((build_dir_lp_arm, cmake_global_switches_arm))
+    else:
+        # no special treatment for the other platforms
+        build_configs = [(build_dir_lp, CMAKE_GLOBAL_SWITCHES)]
+
+    for config in build_configs:
+        shell(
+            "cmake -DPNG_SHARED=OFF " +
+            # https://stackoverflow.com/questions/3961446
+            ("-DCMAKE_POSITION_INDEPENDENT_CODE=ON " if bitness > 32 else "") +
+            "{} {}".format(config[1], path.dirname(path.abspath(build_dir_lp))),
+            cwd=config[0],
+        )
+        shell("cmake --build . --config Release --parallel", cwd=config[0])
+
+    if sys.platform == "darwin":
+        # merge the resulting x86 and arm library into a universal binary
+        shell("lipo -create -output {} {} {}".format(path.join(build_dir_lp, "libpng16.a"),
+                                                     path.join(build_dir_lp, "libpng16.a"),
+                                                     path.join(build_dir_lp_arm, "libpng16.a")))
+
+        # remove the temporary arm build director, so only the universal library is present
+        distutils.dir_util.remove_tree(build_dir_lp_arm)
+
+    shell("cmake --build . --target install", cwd=build_dir_lp)
 
 print("\n# Lastly, rebuild FreeType, this time with additional libraries support.")
 harfbuzz_includes = path.join(prefix_dir, "include", "harfbuzz")
