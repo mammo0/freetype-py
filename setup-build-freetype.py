@@ -26,7 +26,7 @@ import fileinput
 # Needed for the GitHub Actions macOS CI runner, which appears to come without CAs.
 import certifi
 
-FREETYPE_HOST = "https://mirrors.sarata.com/non-gnu/freetype/"
+FREETYPE_HOST = "https://download.savannah.gnu.org/releases/freetype/"
 FREETYPE_TARBALL = "freetype-2.13.2.tar.xz"
 FREETYPE_URL = FREETYPE_HOST + FREETYPE_TARBALL
 FREETYPE_SHA256 = "12991c4e55c506dd7f9b765933e62fd2be2e06d421505d7950a132e4f1bb484d"
