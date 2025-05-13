@@ -8,7 +8,6 @@
 # GCC, Visual Studio Community 2017, ...)
 
 import distutils.dir_util
-import distutils.file_util
 import glob
 import hashlib
 import os
