@@ -35,7 +35,7 @@ HARFBUZZ_TARBALL = "harfbuzz-8.3.0.tar.xz"
 HARFBUZZ_URL = HARFBUZZ_HOST + HARFBUZZ_TARBALL
 HARFBUZZ_SHA256 = "109501eaeb8bde3eadb25fab4164e993fbace29c3d775bcaa1c1e58e2f15f847"
 
-ZLIB_HOST = "https://download.sourceforge.net/libpng/"
+ZLIB_HOST = "https://zlib.net/"
 ZLIB_TARBALL = "zlib-1.2.11.tar.xz"
 ZLIB_URL = ZLIB_HOST + ZLIB_TARBALL
 ZLIB_SH256 = "4ff941449631ace0d4d203e3483be9dbc9da454084111f97ea0a2114e19bf066"
