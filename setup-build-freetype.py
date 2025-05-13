@@ -27,23 +27,23 @@ import fileinput
 import certifi
 
 FREETYPE_HOST = "https://download.savannah.gnu.org/releases/freetype/"
-FREETYPE_TARBALL = "freetype-2.13.2.tar.xz"
+FREETYPE_TARBALL = "freetype-2.13.3.tar.xz"
 FREETYPE_URL = FREETYPE_HOST + FREETYPE_TARBALL
-FREETYPE_SHA256 = "12991c4e55c506dd7f9b765933e62fd2be2e06d421505d7950a132e4f1bb484d"
+FREETYPE_SHA256 = "0550350666d427c74daeb85d5ac7bb353acba5f76956395995311a9c6f063289"
 HARFBUZZ_HOST = "https://github.com/harfbuzz/harfbuzz/releases/download/8.3.0/"
 HARFBUZZ_TARBALL = "harfbuzz-8.3.0.tar.xz"
 HARFBUZZ_URL = HARFBUZZ_HOST + HARFBUZZ_TARBALL
 HARFBUZZ_SHA256 = "109501eaeb8bde3eadb25fab4164e993fbace29c3d775bcaa1c1e58e2f15f847"
 
 ZLIB_HOST = "https://zlib.net/"
-ZLIB_TARBALL = "zlib-1.2.11.tar.xz"
+ZLIB_TARBALL = "zlib-1.3.1.tar.xz"
 ZLIB_URL = ZLIB_HOST + ZLIB_TARBALL
-ZLIB_SH256 = "4ff941449631ace0d4d203e3483be9dbc9da454084111f97ea0a2114e19bf066"
+ZLIB_SH256 = "38ef96b8dfe510d42707d9c781877914792541133e1870841463bfa73f883e32"
 
 LIBPNG_HOST = "https://download.sourceforge.net/libpng/"
-LIBPNG_TARBALL = "libpng-1.6.40.tar.xz"
+LIBPNG_TARBALL = "libpng-1.6.48.tar.xz"
 LIBPNG_URL = LIBPNG_HOST + LIBPNG_TARBALL
-LIBPNG_SH256 = "535b479b2467ff231a3ec6d92a525906fb8ef27978be4f66dbe05d3f3a01b3a1"
+LIBPNG_SH256 = "46fd06ff37db1db64c0dc288d78a3f5efd23ad9ac41561193f983e20937ece03"
 
 BUILD_ZLIB = os.environ.get("FREETYPEPY_WITH_ZLIB", "")
 BUILD_LIBPNG = os.environ.get("FREETYPEPY_WITH_LIBPNG", "")
