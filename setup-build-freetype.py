@@ -9,7 +9,6 @@
 
 import distutils.dir_util
 import distutils.file_util
-import distutils.spawn
 import glob
 import hashlib
 import os
@@ -68,7 +67,7 @@ CMAKE_PREVENT_REEXPORT = ""
 # Try to use Ninja to build things if it's available. Much faster.
 # On Windows, I first need to figure out how to make it aware of VC, bitness,
 # etc.
-if sys.platform != "win32" and distutils.spawn.find_executable("ninja"):
+if sys.platform != "win32" and shutil.which("ninja"):
     CMAKE_GLOBAL_SWITCHES += "-G Ninja "
 
 bitness = None
