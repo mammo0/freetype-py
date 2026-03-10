@@ -28,10 +28,10 @@ FREETYPE_HOST = "https://download.savannah.gnu.org/releases/freetype/"
 FREETYPE_TARBALL = "freetype-2.14.2.tar.xz"
 FREETYPE_URL = FREETYPE_HOST + FREETYPE_TARBALL
 FREETYPE_SHA256 = "4b62dcab4c920a1a860369933221814362e699e26f55792516d671e6ff55b5e1"
-HARFBUZZ_HOST = "https://github.com/harfbuzz/harfbuzz/releases/download/8.3.0/"
-HARFBUZZ_TARBALL = "harfbuzz-8.3.0.tar.xz"
+HARFBUZZ_HOST = "https://github.com/harfbuzz/harfbuzz/releases/download/13.0.1/"
+HARFBUZZ_TARBALL = "harfbuzz-13.0.1.tar.xz"
 HARFBUZZ_URL = HARFBUZZ_HOST + HARFBUZZ_TARBALL
-HARFBUZZ_SHA256 = "109501eaeb8bde3eadb25fab4164e993fbace29c3d775bcaa1c1e58e2f15f847"
+HARFBUZZ_SHA256 = "3553d943401c34ab9b8c75f35cdb8452ca660233b0e9d4a22395ce5245484bd7"
 
 ZLIB_HOST = "https://zlib.net/"
 ZLIB_TARBALL = "zlib-1.3.2.tar.xz"
