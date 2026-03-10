@@ -25,9 +25,9 @@ import fileinput
 import certifi
 
 FREETYPE_HOST = "https://download.savannah.gnu.org/releases/freetype/"
-FREETYPE_TARBALL = "freetype-2.13.3.tar.xz"
+FREETYPE_TARBALL = "freetype-2.14.2.tar.xz"
 FREETYPE_URL = FREETYPE_HOST + FREETYPE_TARBALL
-FREETYPE_SHA256 = "0550350666d427c74daeb85d5ac7bb353acba5f76956395995311a9c6f063289"
+FREETYPE_SHA256 = "4b62dcab4c920a1a860369933221814362e699e26f55792516d671e6ff55b5e1"
 HARFBUZZ_HOST = "https://github.com/harfbuzz/harfbuzz/releases/download/8.3.0/"
 HARFBUZZ_TARBALL = "harfbuzz-8.3.0.tar.xz"
 HARFBUZZ_URL = HARFBUZZ_HOST + HARFBUZZ_TARBALL
